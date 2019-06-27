@@ -7,11 +7,10 @@ import qs from 'qs'
 import router from '@/router'
 import store from '@/store'
 
-import baseURL from './baseUrl'
+
 
 
 const instance = axios.create({
-  baseURL,
   timeout: 15000,
 });
 

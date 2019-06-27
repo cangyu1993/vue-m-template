@@ -18,6 +18,7 @@
   </mu-container>
 </template>
 <script>
+  import api from '@/axios/api'
   export default {
     data () {
       return {
@@ -50,7 +51,15 @@
           password: '',
           isAgree: false
         };
+      },
+      getList(){
+        this.$axios.get(api.identity).then(res=>{
+          console.log(res)
+        })
       }
+    },
+    created(){
+      this.getList()
     }
   };
 </script>

@@ -1,17 +1,22 @@
 'use strict'
 // Template version: 1.3.1
-// see http://vuejs-templates.github.io/webpack for documentation.
-
+// see http://vuejs-templates.github.io/webpack for documentation
 const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    proxyTable: {
+      '/api': {
+        target:'https://yzgsapi.ewangke.com/api', //服务器地址
+        changeOrigin: true,  //开启跨域
+        pathRewrite: {
+          '/api': '/'
+        }
+      }
+    },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -20,7 +25,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
